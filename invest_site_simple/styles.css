@@ -1,0 +1,87 @@
+:root{
+  --bg:#0c1730; --card:#0f1d3b; --muted:#8ea3d7; --text:#e8f0ff;
+  --accent:#7dd3fc; --line: rgba(255,255,255,.08); --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* 顶部：左品牌，右导航 */
+.topbar { position: sticky; top: 0; z-index: 9; background: rgba(6,12,26,.7); backdrop-filter: blur(8px); border-bottom:1px solid var(--line); }
+.topbar-inner { max-width: 1200px; margin: 0 auto; padding: 14px 16px; display:flex; gap:16px; align-items:center; }
+.brand{ display:flex; align-items:center; gap:10px; text-decoration:none; }
+.brand-badge{ background:#2f3b7d; color:#9fb6ff; border-radius:12px; width:36px; height:36px; display:grid; place-items:center; font-weight:800; }
+.brand-text{ line-height:1; }
+.brand-title{ font-weight:800; color:#cfe0ff; }
+.brand-sub{ font-size:12px; color:#9bb0d6; margin-top:2px;}
+.nav{ margin-left:auto; display:flex; gap:18px; align-items:center; }
+.nav a{ color:#cfe0ff; font-weight:600; }
+.nav a:hover{ color:#fff; }
+.btn{ background:#2a4a92; border:none; color:#fff; padding:10px 16px; border-radius:12px; cursor:pointer; box-shadow:var(--shadow); font-weight:700; }
+.btn.xl{ padding:14px 22px; font-size:1.1rem; border-radius:14px; }
+.btn.full{ width:100%; }
+
+/* Hero */
+.hero{padding:80px 0 40px; background:linear-gradient(180deg,rgba(15,29,59,.6),rgba(12,23,48,0) 60%);}
+.hero-inner{padding:40px 0}
+.hero-tag{color:#9fb6ff;margin-bottom:10px;font-size:1.05rem}
+.hero-title{font-size:3rem;line-height:1.15;margin:0 0 12px;max-width:920px}
+.hero-actions{margin-top:16px}
+
+/* 通用区块与卡片 */
+.section{padding:34px 0}
+.section-title{font-size:2rem;margin:0 0 14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+.grid-2{display:grid;grid-template-columns:1fr 340px;gap:18px}
+
+/* 关于 */
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center}
+.about-name{margin:0 0 12px;font-size:1.4rem}
+.about-list{margin:0;padding-left:20px}
+.about-list li{margin:6px 0}
+.avatars{display:flex;gap:14px;justify-content:center}
+.avatars img{width:180px;height:180px;object-fit:cover;border-radius:50%;border:2px solid var(--line);box-shadow:var(--shadow)}
+.avatar-caption{margin-top:10px;text-align:center;font-weight:800}
+
+/* 巨型文字（我的绩效/团队绩效 KPI） */
+.kpi-giant{ font-size:260%; line-height:1.35; font-weight:800; }
+.kpi-giant .k{ color:#9fb0ff; font-weight:600; margin-right:6px; }
+.kpi-giant .v{ color:#7cd2ff; }
+
+/* 我的绩效 */
+.my-giant{ font-size:260%; line-height:1.35; font-weight:800; }
+.my-giant .label{ color:#9fb0ff; font-weight:600; margin-right:6px; }
+.my-giant .value{ color:#7cd2ff; }
+.table-lg{ width:100%; border-collapse:collapse; font-size:1rem; }
+.table-lg th,.table-lg td{ border-bottom:1px solid var(--line); padding:10px 8px; text-align:left; }
+.table-lg th{ color:#b9c7ff; font-weight:800; }
+.table-lg tr:hover{ background:rgba(255,255,255,.04); }
+
+/* 团队绩效：横向扩大（容器更宽），高度适中 */
+.wide-team{ max-width: 1600px; }   /* 横向更宽的容器 */
+#route-team .card.chart-xxl{ padding:16px; }
+#route-team .chart-title{ font-weight:900; margin:4px 0 10px; }
+#route-team .chart-wrap{
+  width:100%;
+  height:360px;                 /* 保持适中高度；横向扩大靠容器宽度 */
+}
+#route-team .chart-wrap canvas{ width:100% !important; height:100% !important; }
+
+/* Footer */
+.footer{padding:26px 0;border-top:1px solid var(--line);margin-top:30px;text-align:center;color:#9fb6ff}
+
+/* Modal */
+.modal{position:fixed;inset:0;display:none;place-items:center}
+.modal.show{display:grid}
+.modal-card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;width:min(92vw,460px);padding:18px;z-index:2;text-align:center}
+.modal-title{margin:0 0 12px}
+.qr-img{width:280px;max-width:100%;display:block;margin:0 auto 14px;border-radius:8px;border:1px solid var(--line)}
+.modal-close{position:absolute;right:10px;top:8px;width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:transparent;color:#fff;font-size:20px;cursor:pointer}
+.modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(2px)}
+
+@media (max-width:900px){
+  .hero-title{font-size:2.2rem}
+  .about-grid{grid-template-columns:1fr}
+  .avatars img{width:160px;height:160px}
+}
